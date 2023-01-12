@@ -35,7 +35,7 @@ class MainTabController: UITabBarController {
         // Embed Controllers inside of the TabBar Controller
         viewControllers = [feed, search, imageSelector, notifications, profile]
         tabBar.tintColor = .black
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .white.withAlphaComponent(0.1)
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
