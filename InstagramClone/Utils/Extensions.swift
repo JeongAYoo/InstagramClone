@@ -9,13 +9,17 @@ import UIKit
 
 
 extension UIButton {
+    // 버튼 내에 글자 마다 다른 속성만들어서 적용하기
+    // 버튼 타이틀 텍스트의 속성이 2개로 나뉨. first - 노멀 / second - 굵게
     func attributedTitle(firstPart: String, secondPart: String) {
         let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 16)]
+        // mutable로 해야됨. 바꿀거기때매
         let attributedTitle = NSMutableAttributedString(string: "\(firstPart) ", attributes: atts)
         
         let boldAtts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.boldSystemFont(ofSize: 16)]
         attributedTitle.append(NSAttributedString(string: secondPart, attributes: boldAtts))
         
+        // 속성이 적용된 String을 버튼 타이틀로 설정 .setTitle()쓰지 않도록 주의
         setAttributedTitle(attributedTitle, for: .normal)
     }
 }
