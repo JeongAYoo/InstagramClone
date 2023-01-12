@@ -7,6 +7,17 @@
 
 import UIKit
 
+extension UIViewController {
+    /// 배경에 그래디언트 컬러 만들어서 적용하기
+    func configureGradientLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        gradient.locations = [0, 1] // 화면의 top to bottom 전체에 위치
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+    
+}
 
 extension UIButton {
     // 버튼 내에 글자 마다 다른 속성만들어서 적용하기
