@@ -31,6 +31,8 @@
 		076E54442972F4600003864F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 076E54432972F4600003864F /* FirebaseFirestore */; };
 		076E54462972F4600003864F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 076E54452972F4600003864F /* FirebaseMessaging */; };
 		076E54482972F4600003864F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 076E54472972F4600003864F /* FirebaseStorage */; };
+		076E544A2973013B0003864F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E54492973013B0003864F /* ImageUploader.swift */; };
+		076E544C297301480003864F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E544B297301480003864F /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		073A840F296C7E6F00CE910C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		073A8411296C7E8500CE910C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		076E543C2972F28C0003864F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		076E54492973013B0003864F /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		076E544B297301480003864F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 		073A8401296C7B8000CE910C /* API */ = {
 			isa = PBXGroup;
 			children = (
+				076E54492973013B0003864F /* ImageUploader.swift */,
+				076E544B297301480003864F /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 				073A840A296C7E3F00CE910C /* FeedController.swift in Sources */,
 				073A8408296C7CB800CE910C /* MainTabController.swift in Sources */,
 				0723D9A3296DB8AE0070E733 /* Extensions.swift in Sources */,
+				076E544A2973013B0003864F /* ImageUploader.swift in Sources */,
+				076E544C297301480003864F /* AuthService.swift in Sources */,
 				073A83EE296C7B4A00CE910C /* SceneDelegate.swift in Sources */,
 				0723D9A8296EF5CA0070E733 /* RegistrationController.swift in Sources */,
 			);

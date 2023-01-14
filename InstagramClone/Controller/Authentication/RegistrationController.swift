@@ -12,6 +12,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?  // 유저가 사진 선택하기 전까진 nil
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -45,6 +46,7 @@ class RegistrationController: UIViewController {
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -64,6 +66,30 @@ class RegistrationController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func handleSignUp() {
+        // 각각 텍스트필드의 텍스트를 AuthCredentials 구조체 인스턴스에 저장
+        guard let email = emailTextField.text else { return }   // TF의 text는 옵셔널임
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text?.lowercased() else { return }   // 소문자로만
+        guard let profileImage = self.profileImage else { return }
+            
+        let credentials = AuthCredentials(email: email, password: password,
+                                          fullname: fullname, username: username,
+                                          profileImage: profileImage)
+
+        AuthService.registerUser(withCredential: credentials) { error in
+            // handle error
+            if let error = error {
+                print("DEBUG: Failed to register user \(error.localizedDescription)")
+                return
+            }
+            
+            // if succeed
+            print("DEBUG: Successfully registered user with firestore..")
+        }
+    }
     
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
@@ -145,6 +171,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         
         // info 딕셔너리의 value 값을 editedImage라는 키로 접근 -> UIImage로 타입캐스팅 후 변수에 저장
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage    // 선택한 이미지를 클래스레벨 프로퍼티에 저장
         
         // 버튼의 이미지는 둥글어도 actual button itself is still a square -> need to round it out
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
