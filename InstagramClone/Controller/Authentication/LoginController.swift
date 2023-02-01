@@ -40,6 +40,7 @@ class LoginController: UIViewController {
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -66,6 +67,21 @@ class LoginController: UIViewController {
     }
     
     // MARK: - Actions
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }   // TF의 text는 옵셔널임
+        guard let password = passwordTextField.text else { return }
+        
+        // Create function in AuthService
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            // handle error
+            if let error = error {
+                print("DEBUG: Failed to log user in \(error.localizedDescription)")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     @objc func handleShowSignUp() {
         let controller = RegistrationController()

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
 
@@ -13,7 +14,23 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
+        checkIfUserIsLoggedIn()
 
+    }
+    
+    // MARK: - API
+    
+    func checkIfUserIsLoggedIn() {
+        // API call to check if the current user is logged in
+        if Auth.auth().currentUser == nil {
+            // 유저 체크는 비동기적으로 실행됨 -> 메인큐에서 뷰컨 프레젠트 실행
+            DispatchQueue.main.async {
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - Helpers

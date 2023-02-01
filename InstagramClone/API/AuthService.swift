@@ -17,6 +17,12 @@ struct AuthCredentials {
 }
 
 struct AuthService {
+    
+    // 강의에서는 컴플리션 함수를 AuthDataResultCallback?을 씀 https://developer.apple.com/forums/thread/706016
+    static func logUserIn(withEmail email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
     static func registerUser(withCredential credentials: AuthCredentials, completion: @escaping (Error?) -> Void) {
         //print("DEBUG: Credentials are \(credentials)")
         // 이미지를 먼저 업로드 하고 -> Get access to image url -> 모든 user info를 업로드

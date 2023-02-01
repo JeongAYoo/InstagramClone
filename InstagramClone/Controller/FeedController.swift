@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let reuseIdentifier = "Cell"
 
@@ -18,12 +19,35 @@ class FeedController: UICollectionViewController {
         configureUI()
     }
     
+    // MARK: - Actions
+    
+    /// 로그아웃 버튼 클릭시 실행함수. 로그아웃 후 메인탭컨트롤러로 이동
+    @objc func handleLogout() {
+        do {
+            try Auth.auth().signOut()
+            
+            let controller = LoginController()
+            let nav = UINavigationController(rootViewController: controller)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true, completion: nil)
+            
+        } catch {
+            print("DEBUG: Failed to sign out")
+        }
+    }
+    
     // MARK: - Helpers
     
     func configureUI() {
         collectionView.backgroundColor = .white
         
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier) // 셀 등록
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(handleLogout))
+        navigationItem.title = "Feed"
 
     }
 }
