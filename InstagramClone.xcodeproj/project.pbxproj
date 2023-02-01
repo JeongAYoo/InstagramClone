@@ -33,6 +33,8 @@
 		076E54482972F4600003864F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 076E54472972F4600003864F /* FirebaseStorage */; };
 		076E544A2973013B0003864F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E54492973013B0003864F /* ImageUploader.swift */; };
 		076E544C297301480003864F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076E544B297301480003864F /* AuthService.swift */; };
+		07E3E561298ADD58009FC7B5 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3E560298ADD58009FC7B5 /* ProfileCell.swift */; };
+		07E3E563298ADD6C009FC7B5 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E3E562298ADD6C009FC7B5 /* ProfileHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		076E543C2972F28C0003864F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		076E54492973013B0003864F /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		076E544B297301480003864F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		07E3E560298ADD58009FC7B5 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		07E3E562298ADD6C009FC7B5 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,13 +147,13 @@
 		073A8403296C7B8D00CE910C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0723D9A4296EF2050070E733 /* Authentication */,
 				073A8407296C7CB800CE910C /* MainTabController.swift */,
 				073A8409296C7E3F00CE910C /* FeedController.swift */,
 				073A840B296C7E4800CE910C /* SearchController.swift */,
 				073A840D296C7E5500CE910C /* ImageSelectorController.swift */,
 				073A840F296C7E6F00CE910C /* NotificationController.swift */,
 				073A8411296C7E8500CE910C /* ProfileController.swift */,
-				0723D9A4296EF2050070E733 /* Authentication */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +169,7 @@
 		073A8405296C7B9200CE910C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07E3E564298ADD70009FC7B5 /* Profile */,
 				0723D9A0296DB7B40070E733 /* FeedCell.swift */,
 				0723D9A9297021800070E733 /* CustomTextField.swift */,
 			);
@@ -176,6 +181,15 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		07E3E564298ADD70009FC7B5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				07E3E560298ADD58009FC7B5 /* ProfileCell.swift */,
+				07E3E562298ADD6C009FC7B5 /* ProfileHeader.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0723D9AA297021800070E733 /* CustomTextField.swift in Sources */,
+				07E3E563298ADD6C009FC7B5 /* ProfileHeader.swift in Sources */,
 				073A83F0296C7B4A00CE910C /* ViewController.swift in Sources */,
 				0723D9A6296EF5AF0070E733 /* LoginController.swift in Sources */,
 				0723D9A1296DB7B40070E733 /* FeedCell.swift in Sources */,
@@ -275,6 +290,7 @@
 				0723D9A3296DB8AE0070E733 /* Extensions.swift in Sources */,
 				076E544A2973013B0003864F /* ImageUploader.swift in Sources */,
 				076E544C297301480003864F /* AuthService.swift in Sources */,
+				07E3E561298ADD58009FC7B5 /* ProfileCell.swift in Sources */,
 				073A83EE296C7B4A00CE910C /* SceneDelegate.swift in Sources */,
 				0723D9A8296EF5CA0070E733 /* RegistrationController.swift in Sources */,
 			);
